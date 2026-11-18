@@ -1,5 +1,5 @@
 using ForumApp.Data;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace ForumApp
 {
@@ -10,15 +10,14 @@ namespace ForumApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(); 
 
-            // Add DbContext 
-            string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-                ?? throw new ArgumentNullException(); 
-            builder.Services.AddDbContext<ForumAppDbContext>(options =>
-            {
-                options.UseSqlServer(connectionString); 
-            }); 
+            // Add Identity 
+            builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = true;
+                })
+                .AddEntityFrameworkStores<ForumAppContext>();
 
             var app = builder.Build(); 
             
