@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.34" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\ForumApp.Data.csproj" />
     <ProjectReference Include="..\ForumApp.Core.Models\ForumApp.Core.Models.csproj" />
     <ProjectReference Include="..\ForumApp.Core.Services\ForumApp.Core.Services.csproj" />
   </ItemGroup>

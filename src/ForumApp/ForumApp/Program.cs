@@ -1,3 +1,6 @@
+using ForumApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ForumApp
 {
     public class Program
@@ -7,9 +10,18 @@ namespace ForumApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews(); 
+            builder.Services.AddControllersWithViews();
 
-            var app = builder.Build();
+            // Add DbContext 
+            string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+                ?? throw new ArgumentNullException(); 
+            builder.Services.AddDbContext<ForumAppDbContext>(options =>
+            {
+                options.UseSqlServer(connectionString); 
+            }); 
+
+            var app = builder.Build(); 
+            
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
