@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using ForumApp.Models;
+using ForumApp.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ForumApp.Controllers
