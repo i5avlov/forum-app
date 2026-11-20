@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Data\ForumApp.Data.csproj" />
     <ProjectReference Include="..\ForumApp.Core.Models\ForumApp.Core.Models.csproj" />
     <ProjectReference Include="..\ForumApp.Core.Services\ForumApp.Core.Services.csproj" />
+    <ProjectReference Include="..\ForumApp.Data.Models\ForumApp.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

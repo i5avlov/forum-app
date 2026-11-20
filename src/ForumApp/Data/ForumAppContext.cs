@@ -1,11 +1,10 @@
 ﻿using ForumApp.Data.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ForumApp.Data;
 
-public class ForumAppContext : IdentityDbContext<IdentityUser> 
+public class ForumAppContext : IdentityDbContext<ApplicationUser> 
 {
     public ForumAppContext() 
     {
